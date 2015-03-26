@@ -1,0 +1,36 @@
+{
+  "name": "JobBoard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "~1.0.0",
+    "connect-flash": "~0.1.1",
+    "connect-mongo": "^0.8.0",
+    "consolidate": "^0.11.0",
+    "cookie-parser": "~1.0.0",
+    "cookieparser": "^0.1.0",
+    "ejs": "^2.3.1",
+    "express": "^4.12.3",
+    "express-session": "^1.0.4",
+    "lodash": "^3.5.0",
+    "method-override": "~1.0.0",
+    "mongoose": "~3.8.0",
+    "morgan": "~1.0.0",
+    "nodemon": "^1.3.7",
+    "passport": "^0.2.1",
+    "passport-facebook": "~1.0.2",
+    "passport-google-oauth": "~0.1.5",
+    "passport-http": "^0.2.2",
+    "passport-local": "~0.1.6",
+    "passport-twitter": "^1.0.3",
+    "path": "^0.11.14"
+  },
+  "author": "Ogunwa Olaoluwa Fadekemi",
+  "license": "ISC"
+}
