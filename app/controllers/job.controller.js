@@ -28,15 +28,55 @@ var newJob = {
 
   findAllJobs: function(req, res, next) {
 
-    Job.find(function(err, data) {
+    Job.find({title: req.query.query}, function(err, title) {
       if (err) {
         res.send(err);
       }
 
       else {
-        res.json(data);
+        Job.find({company: req.query.query}, function(err, company) {
+          if (err) {
+            res.send(err);
+          }
+          else {
+            res.json({
+              "by_company": company,
+              "by_title":title
+            });
+          }
+          // res.json(title);
+        });
+        
       }
       // next();
+    });
+  },
+
+  getRecentJobs: function(req, res, next){
+    Job.find(function(err, data){
+      if (err) {
+        res.send(err);
+      }
+      else {
+        res.json(data);
+      }
+      next();
+    });
+
+  },
+
+
+  findAllUsers: function(req, res, next) {
+
+    User.find(function(err, data) {
+      if (err) {
+        res.send(err);
+      }
+
+      else{
+        res.json(data);
+      }
+      next();
     });
   },
 
@@ -63,7 +103,7 @@ var newJob = {
 
       //check if user does not exist
       else if (job === null) {
-        res.json({message: 'Job does not exist'})
+        res.json({message: 'Job does not exist'});
       }
 
       //update all user info
@@ -96,7 +136,7 @@ var newJob = {
 
       //check if user does not exist
       else if (job === null) {
-        res.json({message: 'Job does not exist'})
+        res.json({message: 'Job does not exist'});
       }
 
       //else delete the user

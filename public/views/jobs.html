@@ -1,20 +1,42 @@
-<div>
-  <li ng-repeat="job in response">
-    <h3>{{job.title}}</h3>
-    <p>{{job.details}}</p>
-    <p>{{job.createdAt}}</p>
-    <p>{{job.timeline}}</p>
-  </li>
-</div>
 
-<!-- <div class="row">
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s8">
-        <input id="search" type="text" class="validate" placeholder="Search Job or Company">
-        <label for="search"></label>
-      </div>
+
+  <div class="row">
+    <div class="col s12 m3 l2" style="background:grey"><p>s12 m4</p>
+      <div class="interlude" id="main-interlude-white">
+        <h3>Write less code. Build products faster.</h3>
+        <h6 class="grey-text">Focus on creating unique &amp; engaging apps. We take care of everything else your app needs.</h6>
+    </div>
+    </div>
+    <div class="col s12 m6 l8 side-nav" style="min-height:56vh">
+      <form ng-submit="findJob()">
+    <div class="form-group">
+      <label for="search_job">Search</label>
+      <input type="search" class="form-control" id="search_job" placeholder="Search for company or job" style="border-bottom:5px solid black" ng-model="searchTerm">
     </div>
   </form>
-</div>
- -->
+      <div class="interlude" id="main-interlude-white" style="background:white">
+        <div>
+          <ul>
+            <li ng-repeat="job in response.by_title">
+              <h3>{{job.title}}</h3>
+              <p>{{job.details}}</p>
+              <p>{{job.createdAt}}</p>
+              <p>{{job.timeline}}</p>
+            </li>
+            <li ng-repeat="job in response.by_company">
+              <h3>{{job.title}}</h3>
+              <p>{{job.details}}</p>
+              <p>{{job.createdAt}}</p>
+              <p>{{job.timeline}}</p>
+            </li>
+          </ul>
+        </div>
+    </div>
+    </div>
+    <div class="col s12 m3 l2 fixed" style="background:grey"><p>s12 m4</p>
+       <div class="interlude" id="main-interlude-white">
+        <h3>Recent Jobs</h3>
+        <h6 class="grey-text">Focus on creating unique &amp; engaging apps. We take care of everything else your app needs.</h6>
+    </div>
+    </div>
+  </div>

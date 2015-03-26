@@ -7,7 +7,9 @@ JobModule.controller('JobController', ['$scope','JobFactory', 'loggedIn', '$loca
   }
 
   $scope.findJob = function() {
-    JobFactory.get()
+    var searchObject = {};
+    searchObject.query = $scope.searchTerm;
+    JobFactory.get(searchObject)
     .success(function(data){
       $scope.response = data;
       console.log(data);
@@ -16,13 +18,24 @@ JobModule.controller('JobController', ['$scope','JobFactory', 'loggedIn', '$loca
       console.log(error);
     });
   };
-  $scope.findJob();
+
+  var findRecentJobs = function() {
+    JobFactory.getRecent()
+    .success(function(data){
+      $scope.recent_jobs = data;
+      console.log(data);
+    })
+    .error(function(error){
+      console.log(error);
+    });
+  };
+  findRecentJobs();
 
   $scope.postJob = function() {
     var jobDetails = {
       title : $scope.jobTitle,
       details: $scope.jobDetails
-    }
+    };
     JobFactory.post(jobDetails)
     .success(function(data){
       console.log(data);

@@ -35,7 +35,7 @@ routeApp.config(['$routeProvider', function ($routeProvider) {
       templateUrl: '../views/user_details.html',
       controller: 'UserDetailsController'
     }).
-    when('/profile', {
+    when('/:username', {
       templateUrl: '../views/profile.html',
       controller: 'ProfileController'
     }).

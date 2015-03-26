@@ -4,7 +4,7 @@ SignupService.factory('SignupFactory', ['$http', function($http) {
   return {
     //function to create a new user
     newUser: function(userInfo) {
-      return $http.post('api/users', userInfo);
+      return $http.post('api/signup', userInfo);
     }
   }
 
