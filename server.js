@@ -18,7 +18,8 @@ var db = require('./config/db');
 
 // set our port
 // var port = process.env.PORT || 8080;
-app.set('port', (process.env.PORT || 8080));
+// app.set('port', (process.env.PORT || 8080));
+var port = process.env.PORT || 8080; 
 
 // connect to our database
 //do not need to save to a variable
@@ -79,7 +80,7 @@ app.get('*', function(req, res) {
 
 // start app ===============================================
 // startup our app at http://localhost:8080
-app.get('port');
+app.listen(port);
                     
 
 // expose app           
