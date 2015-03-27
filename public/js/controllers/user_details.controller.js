@@ -4,5 +4,5 @@ UserDetailsModule.controller('UserDetailsController', ['$scope','$routeParams','
  function($scope, $routeParams, UserDetailsFactory) {
 
   $scope.user = $routeParams.user;
-  $scope.message ='Hello ' + $scope.user;
+  $scope.message = 'Hello ' + $scope.user;
 }]);

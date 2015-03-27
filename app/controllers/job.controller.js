@@ -4,6 +4,8 @@ var newJob = {
 
   createJob: function(req, res, next) {
 
+    // console.log('req: ', req.body);
+
     var jobObj = {
       title: req.body.title,
       expiration_date: req.body.expiration_date,
@@ -14,27 +16,23 @@ var newJob = {
       categories: req.body.categories
     };
 
-    Job.create(jobObj, function(err, data) {
+    Job.create(req.body, function(err, data) {
       if (err) {
         res.send(err);
-      }
-
-      else{
-        res.json(data);
+      } else {
+          res.json(data);
       } 
       next();
     });
   },
 
-  findAllJobs: function(req, res, next) {
+  findAllJobs: function(req, res) {
 
     Job.find({title: req.query.query}, function(err, title) {
       if (err) {
         res.send(err);
-      }
-
-      else {
-        Job.find({company: req.query.query}, function(err, company) {
+      } else {
+          Job.find({company: req.query.query}, function(err, company) {
           if (err) {
             res.send(err);
           }
@@ -44,40 +42,21 @@ var newJob = {
               "by_title":title
             });
           }
-          // res.json(title);
         });
-        
       }
-      // next();
     });
   },
 
-  getRecentJobs: function(req, res, next){
-    Job.find(function(err, data){
+  getRecentJobs: function(req, res){
+    Job.find({}, function(err, data){
       if (err) {
         res.send(err);
       }
       else {
         res.json(data);
       }
-      next();
     });
 
-  },
-
-
-  findAllUsers: function(req, res, next) {
-
-    User.find(function(err, data) {
-      if (err) {
-        res.send(err);
-      }
-
-      else{
-        res.json(data);
-      }
-      next();
-    });
   },
 
   getSingleJob: function(req, res, next) {
@@ -152,7 +131,7 @@ var newJob = {
       }
     });
   }
-}
+};
 
 module.exports = newJob;
 

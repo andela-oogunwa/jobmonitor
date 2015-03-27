@@ -1,10 +1,7 @@
 var JobModule = angular.module('JobModule', ['JobService']);
 
-JobModule.controller('JobController', ['$scope','JobFactory', 'loggedIn', '$location', function($scope, JobFactory, loggedIn, $location) {
-  console.log(loggedIn);
-  if (!loggedIn.data) {
-    $location.path('/');
-  }
+JobModule.controller('JobController', ['$scope','JobFactory', '$location', 
+  function($scope, JobFactory, $location) {
 
   $scope.findJob = function() {
     var searchObject = {};
@@ -12,14 +9,14 @@ JobModule.controller('JobController', ['$scope','JobFactory', 'loggedIn', '$loca
     JobFactory.get(searchObject)
     .success(function(data){
       $scope.response = data;
-      console.log(data);
+      // console.log(data);
     })
     .error(function(error){
       console.log(error);
     });
   };
 
-  var findRecentJobs = function() {
+  $scope.findRecentJobs = function() {
     JobFactory.getRecent()
     .success(function(data){
       $scope.recent_jobs = data;
@@ -29,19 +26,19 @@ JobModule.controller('JobController', ['$scope','JobFactory', 'loggedIn', '$loca
       console.log(error);
     });
   };
-  findRecentJobs();
 
-  $scope.postJob = function() {
+  $scope.addJob = function() {
     var jobDetails = {
-      title : $scope.jobTitle,
-      details: $scope.jobDetails
+      title : $scope.title,
+      details: $scope.details
     };
-    JobFactory.post(jobDetails)
-    .success(function(data){
-      console.log(data);
-    })
-    .error(function(error){
-      console.log(error);
+    console.log("ghgdhhdsj");
+    JobFactory.postJob(jobDetails)
+      .success(function(data){
+        console.log(data);
+      })
+      .error(function(error){
+        console.log(error);
     });
   };
 }]);

@@ -5,28 +5,28 @@ var Schema = mongoose.Schema;
 var jobSchema = new Schema({
   title: {
     type: String,
-    required: true
+    // required: true
   },
   expiration_date: {
     type: Date,
-    required: true
+    // required: true
   },
   createdAt: { type:Date, default: Date.now },
   details: {
     type: String,
-    required: true
+    // required: true
   },
   company: {
     type: String,
-    required: true
+    // required: true
   },
   position: {
     type: String,
-    required: true
+    // required: true
   },
   location: {
     type: String,
-    required: true
+    // required: true
   },
   categories: {
     type: Array

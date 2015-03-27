@@ -10,53 +10,31 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
-  <header class="navbar-fixed">
-    <nav class="navbar-fixed">
-      <div>
-        <a href="#/" class="brand-logo">JOB BOARD</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/api/logout">Logout</a></li>
-          <li><a href="#/signup">Register</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+    <header class="navbar-fixed">
+      <nav class="navbar-fixed pink darken-4">
+        <div>
+          <a href="#/" class="brand-logo">JOB BOARD</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#/login">Login</a></li>
+            <li><a href="#/signup">Register</a></li>
+            <li><a href="#/">Home</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
 
     <div ng-view class='main'></div>
 
-    <footer class="page-footer  grey darken-2">
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Related Topics</h5>
-            <p class="grey-text text-lighten-4">Jobs on the go</p>
-          </div>
-          <div class="col l4 offset-l2 s12">
-            <h5 class="white-text">Links</h5>
-            <ul>
-              <li><a class="grey-text text-lighten-3" href="#!">Contact Us</a></li>
-              <!-- li><a class="grey-text text-lighten-3" href="#!">About</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-              <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li> -->
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer-copyright">
-        <div class="container">
-        © 2015 Fadekemi Ogunwa Inc.
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-        </div>
-      </div>
-    </footer>
+
    
             
-
+    <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="lib/angular/angular.js"></script>
     <script type="text/javascript" src="lib/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="lib/angular-aria/angular-aria.min.js"></script>
     <script type="text/javascript" src="lib/angular-animate/angular-animate.min.js"></script>
     <script type="text/javascript" src="lib/angular-material/angular-material.min.js"></script>
+    <!-- <script type="text/javascript" src="lib/jquery/jquery.js"></script> -->
     <script type="text/javascript" src="lib/angular-resource/angular-resource.min.js"></script>
     <script type="text/javascript" src="js/controllers/login.controller.js"></script>
     <script type="text/javascript" src="js/controllers/home.controller.js"></script>

@@ -10,13 +10,12 @@
 }
 
 #button {
-  position:relative;
+  float:right;
   left: 35%;
   margin-top:30%;
 }
 
-/*nav {
-  background: rgba(255, 255, 255, 0.5);
-   opacity: 0.1 !important; 
-   filter: alpha(opacity=50);
-}*/
+
+#profile {
+  width:750px;
+}
