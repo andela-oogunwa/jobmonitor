@@ -17,11 +17,13 @@ var app = express();
 var db = require('./config/db');
 
 // set our port
-var port = process.env.PORT || 8080;
+// var port = process.env.PORT || 8080;
+app.set('port', (process.env.PORT || 8080));
 
 // connect to our database
 //do not need to save to a variable
-var testCon = mongoose.connect(db.url);
+// var testCon = mongoose.connect(db.url);
+mongoose.connect(db.productionUrl);
 
 // get all data/stuff of the body (POST) parameters
 // parse application/json 
@@ -77,7 +79,7 @@ app.get('*', function(req, res) {
 
 // start app ===============================================
 // startup our app at http://localhost:8080
-app.listen(port);
+app.listen('port');
                     
 console.log('Magic happens on port ' + port);
 
