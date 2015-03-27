@@ -5,7 +5,7 @@ var UserCRUD = {
 
   signup: function(req, res, next) {
 
-  var user = new User();
+    var user = new User();
 
     user.firstName = req.body.firstName;
     user.username = req.body.username; 
@@ -29,9 +29,7 @@ var UserCRUD = {
             res.json(user);
           }
         });
-        // res.json(user);
       } 
-      // next();
     });
   },
 
@@ -74,7 +72,7 @@ var UserCRUD = {
     });
   },
 
-  getSingleUser: function(req, res, next) {
+  getSingleUser: function(req, res) {
 
     User.findById(req.params.user_id, function(err, data) {
       if (err) {
@@ -82,9 +80,8 @@ var UserCRUD = {
       }
 
       else{
-        res.json(data);
+        res.jsonp(data);
       } 
-      next();
     });
   },
 
@@ -97,7 +94,7 @@ var UserCRUD = {
 
       //check if user does not exist
       else if (user === null) {
-        res.json({message: 'User does not exist'})
+        res.json({message: 'User does not exist'});
       }
 
       //update all user info
@@ -130,7 +127,7 @@ var UserCRUD = {
 
       //check if user does not exist
       else if (user === null) {
-        res.json({message: 'User does not exist'})
+        res.json({message: 'User does not exist'});
       }
 
       //else delete the user
@@ -149,10 +146,11 @@ var UserCRUD = {
 
   isAuthenticated: function(req, res, next) {
     if (!req.isAuthenticated()) {
-      return res.status(401).send({message: 'User is not logged in'});
+      return res.status(401).send({ message: 'User is not logged in'} );
     }
     next();
   },
+
   isLoggedIn: function(req, res) {
     console.log('checking status');
     console.log(req.user);

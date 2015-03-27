@@ -1,14 +1,27 @@
 var JobService = angular.module('JobService', []);
 
 JobService.factory('JobFactory', ['$http', function($http) {
-  return {
-    //function to get all jobs
-    get: function() {
-      return $http.get('/api/jobs');
+
+  var Jobs = {
+    get: function(userInput) {
+      return $http({
+        method: 'GET',
+        url: '/api/jobs',
+        params: userInput
+      });
     },
-    post: function(jobInfo) {
-      return $http.post('api/jobs', jobInfo);
+    
+    getRecent: function() {
+      return $http.get('api/jobs/recent');
+    },
+
+    postJob: function(jobInfo) {
+      console.log('info: ', jobInfo);
+      return $http.post('/api/jobs', jobInfo);
     }
-  }
+  };
+
+  return Jobs;
+
 }]);
 

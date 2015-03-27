@@ -4,6 +4,8 @@ var newJob = {
 
   createJob: function(req, res, next) {
 
+    // console.log('req: ', req.body);
+
     var jobObj = {
       title: req.body.title,
       expiration_date: req.body.expiration_date,
@@ -14,30 +16,47 @@ var newJob = {
       categories: req.body.categories
     };
 
-    Job.create(jobObj, function(err, data) {
+    Job.create(req.body, function(err, data) {
       if (err) {
         res.send(err);
-      }
-
-      else{
-        res.json(data);
+      } else {
+          res.json(data);
       } 
       next();
     });
   },
 
-  findAllJobs: function(req, res, next) {
+  findAllJobs: function(req, res) {
 
-    Job.find(function(err, data) {
+    Job.find({title: req.query.query}, function(err, title) {
+      if (err) {
+        res.send(err);
+      } else {
+          Job.find({company: req.query.query}, function(err, company) {
+          if (err) {
+            res.send(err);
+          }
+          else {
+            res.json({
+              "by_company": company,
+              "by_title":title
+            });
+          }
+        });
+      }
+    });
+  },
+
+  getRecentJobs: function(req, res){
+    Job.find({}, function(err, data){
       if (err) {
         res.send(err);
       }
-
       else {
         res.json(data);
       }
-      // next();
     });
+
   },
 
   getSingleJob: function(req, res, next) {
@@ -63,7 +82,7 @@ var newJob = {
 
       //check if user does not exist
       else if (job === null) {
-        res.json({message: 'Job does not exist'})
+        res.json({message: 'Job does not exist'});
       }
 
       //update all user info
@@ -96,7 +115,7 @@ var newJob = {
 
       //check if user does not exist
       else if (job === null) {
-        res.json({message: 'Job does not exist'})
+        res.json({message: 'Job does not exist'});
       }
 
       //else delete the user
@@ -112,7 +131,7 @@ var newJob = {
       }
     });
   }
-}
+};
 
 module.exports = newJob;
 

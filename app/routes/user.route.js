@@ -14,13 +14,13 @@ router.get('/isloggedin', User.isLoggedIn);
 router.get('/users',  User.findAllUsers);
 
 //get a single user
-router.get('/users/:user_id', User.getSingleUser);
+router.get('/users/:user_id', User.isAuthenticated, User.getSingleUser);
 
 //Edits and updates user's info
-router.put('/users/:user_id', User.updateUser);
+router.put('/users/:user_id', User.isAuthenticated, User.updateUser);
 
 //Deletes user's info
-router.delete('/users/:user_id', User.deleteUser);
+router.delete('/users/:user_id', User.isAuthenticated, User.deleteUser);
 
 // frontend routes =========================================================
 // route to handle all angular requests

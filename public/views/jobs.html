@@ -1,20 +1,55 @@
-<div>
-  <li ng-repeat="job in response">
-    <h3>{{job.title}}</h3>
-    <p>{{job.details}}</p>
-    <p>{{job.createdAt}}</p>
-    <p>{{job.timeline}}</p>
-  </li>
-</div>
 
-<!-- <div class="row">
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s8">
-        <input id="search" type="text" class="validate" placeholder="Search Job or Company">
-        <label for="search"></label>
-      </div>
+
+  <div class="row">
+    <div class="col s12 m3 l2" style="background:grey" ng-controller="UserController">
+      <div class="interlude" id="main-interlude-white">
+        <h3 ng-init="usersList()">Registered Users</h3>
+        <ul ng-repeat="user in users">
+          <li>Username: {{user.username}}</li>
+          <li>Date Registered: {{user.date_created}}</li>
+        </ul>
+        <h6 class="grey-text"></h6>
+    </div>
+    </div>
+    <div class="col s12 m6 l8 side-nav" style="min-height:56vh">
+      <form ng-submit="findJob()">
+    <div class="form-group">
+      <label for="search_job">Search</label>
+      <input type="search" class="form-control" id="search_job" placeholder="Search for company or job" style="border-bottom:5px solid black" ng-model="searchTerm">
     </div>
   </form>
-</div>
- -->
+      <div class="interlude" id="main-interlude-white" style="background:white">
+        <div>
+          <ul>
+            <li ng-repeat="job in response.by_title">
+              <h3>Job Title: {{job.title}}</h3>
+              <p>Job Details: {{job.details}}</p>
+              <p>Posted At: {{job.createdAt}}</p>
+              <p>Company: {{job.company}}</p>
+              <p>Timeline: {{job.timeline}}</p>
+            </li>
+            <li ng-repeat="job in response.by_company">
+              <h3>Job Title: {{job.title}}</h3>
+              <p>Job Details: {{job.details}}</p>
+              <p>Posted At: {{job.createdAt}}</p>
+              <p>Company: {{job.company}}</p>
+              <p>Timeline: {{job.timeline}}</p>
+            </li>
+          </ul>
+        </div>
+    </div>
+    </div>
+    <div class="col s12 m3 l2 fixed" style="background:grey">
+       <div class="interlude" id="main-interlude-white">
+        <h3 ng-init="findRecentJobs()">Recent Jobs</h3>
+        <ul ng-repeat="jobs in recent_jobs">
+          <li>Job Title: {{jobs.title}}</li>
+          <li>Job Details: {{jobs.details}}</li>
+          <li>Posted At: {{jobs.createdAt}}</li>
+          <li>Company: {{jobs.company}}</li>
+          <li>Timeline: {{jobs.timeline}}</li>
+        </ul>
+        <h6 class="grey-text">Jobs on the Go</h6>
+    </div>
+    </div>
+  </div>

@@ -7,11 +7,15 @@ var Job = require('../controllers/job.controller');
 //create new job
 router.post('/jobs', Job.createJob);
 
-// get list of jobs in the database
-router.get('/jobs', User.isAuthenticated, Job.findAllJobs);
+router.get('/jobs', Job.findAllJobs);
+
+
+router.get('/jobs/recent', Job.getRecentJobs);
 
 //get a single job
 router.get('/jobs/:job_id', Job.getSingleJob);
+
+// router.get('/jobs/recent_jobs', Job.getRecentJobs);
 
 //Edits and updates job's info
 router.put('/jobs/:job_id', Job.updateJob);

@@ -37,14 +37,15 @@ app.use(bodyParser.urlencoded({
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/public'));
 //session should be before passport intialize
+// app.use(session({secret: 'JobMon'}));
 app.use(session({
   resave: true,
   saveUninitialized: true,
   secret: 'JobMon',
-  // cookie: {secure: true},
+  // : {secure: true},
   store: new mongoStore({
     url: db.url
-  }),
+  })
 }));
 // Use the passport package in our application
 app.use(passport.initialize());

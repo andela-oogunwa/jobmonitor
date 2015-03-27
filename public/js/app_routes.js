@@ -37,7 +37,7 @@ routeApp.config(['$routeProvider', function ($routeProvider) {
     }).
     when('/profile', {
       templateUrl: '../views/profile.html',
-      controller: 'ProfileController'
+      controller: 'JobController'
     }).
     otherwise({
       redirectTo: '/'

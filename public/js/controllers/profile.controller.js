@@ -12,5 +12,4 @@ ProfileModule.controller('ProfileController', ['$scope','ProfileFactory', functi
       console.log(error);
     });
   };
-  $scope.findProfile();
 }]);

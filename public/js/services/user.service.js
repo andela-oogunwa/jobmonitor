@@ -4,7 +4,7 @@ UserService.factory('UserFactory', ['$http', function($http) {
   return {
     //function to get all the users
     get: function() {
-      return $http.get('/users');
+      return $http.get('api/users');
     },
 
     //function to create a new user

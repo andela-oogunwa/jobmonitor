@@ -1,31 +1,45 @@
-<img ng-src="http://placehold.it/350x150">
-<ul ng-model='response'>
-  <h6>{{response.lastName}} {{response.firstName}}</h6>
-  <p><em>Email address:</em>{{response.email}}</p>
-  <p><em>Username:</em>{{response.username}}</p>
-  <p><em>Member Since:</em> {{response.date_created}}</p>
-  <p><em>Date of Birth:</em> {{response.date_of_birth}}</p>
- <!--  <p><em>Jobs Posted:</em> {{}}</p> -->
-</ul>
-
-
-
-
-
-
-<!-- <div class="row">
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea id="textarea1" class="materialize-textarea"></textarea>
-        <label for="textarea1">Job Title</label>
+<div>
+    <ul id="slide-out" class="right side-nav fixed">
+        <ul>
+            <h6>Fullname: {{response.lastName}} {{response.firstName}}</h6>
+            <p><em>Email address:</em>{{response.email}}</p>
+            <p><em>Username:</em>{{response.username}}</p>
+            <p><em>Member Since:</em> {{response.date_created}}</p>
+            <p><em>Date of Birth:</em> {{response.date_of_birth}}</p>
+            <p><em>Jobs Posted:</em> {{}}</p>
+        </ul>
+    </ul>
+</div>
+<div class="addJob">
+  <div class=" right row">
+    <div class="col s12 m12" id="profile">
+      <div class=" card blue-grey darken-1">
+        <div class="card-content white-text">
+          <div class="container">
+            <div class="row">
+                <form class="col s12" ng-submit="addJob()">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="title" type="text" class="validate" ng-model="title" placeholder="Job Title">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="textarea1" class="materialize-textarea" ng-model="details" placeholder="Job Details"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 right">
+                                <a href="#/jobs"><button class="btn waves-effect waves-light pink darken-4" type="submit" name="action"> Add Job <i class="mdi-content-send right"></i>
+                                </button></a>
+                            </div>
+                        </div>
+                </form>
+              </div>
+          </div>
+        </div>
       </div>
-      <div class="input-field col s12">
-        <textarea id="textarea1" class="materialize-textarea"></textarea>
-        <label for="textarea1">Job Details</label>
-      </div>
-      <button class="btn waves-effect waves-light  pink darken-1" type="submit" name="action" ng-click="postJob()">Submit
-      <i class="mdi-content-send right"></i>
     </div>
-  </form>
-</div> -->
+  </div>
+</div>
