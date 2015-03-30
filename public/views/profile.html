@@ -4,7 +4,7 @@
             <h6>Fullname: {{response.lastName}} {{response.firstName}}</h6>
             <p><em>Email address:</em>{{response.email}}</p>
             <p><em>Username:</em>{{response.username}}</p>
-            <p><em>Member Since:</em> {{response.date_created}}</p>
+            <p><em>Member Since:</em> {{response.date_created | date: 'yyyy-MM-dd'}}</p>
             <p><em>Date of Birth:</em> {{response.date_of_birth}}</p>
             <p><em>Jobs Posted:</em> {{}}</p>
         </ul>

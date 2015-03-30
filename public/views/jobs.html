@@ -6,7 +6,7 @@
         <h3 ng-init="usersList()">Registered Users</h3>
         <ul ng-repeat="user in users">
           <li>Username: {{user.username}}</li>
-          <li>Date Registered: {{user.date_created}}</li>
+          <li>Date Registered: {{user.date_created | date: 'yyyy-MM-dd'}}</li>
         </ul>
         <h6 class="grey-text"></h6>
     </div>
