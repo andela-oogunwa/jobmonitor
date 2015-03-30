@@ -7,7 +7,7 @@ var session = require('express-session');
 var cookieparser = require('cookie-parser');
 var passport = require('passport');
 var auth = require('./app/controllers/passport');
-var mongoStore = require('connect-mongo')({session: session});
+// var mongoStore = require('connect-mongo')({session: session});
 
 var app = express();
 
@@ -15,6 +15,8 @@ var app = express();
 
 // config files
 var db = require('./config/db');
+
+
 
 // set our port
 // var port = process.env.PORT || 8080;
@@ -41,11 +43,11 @@ app.use(express.static(__dirname + '/public'));
 app.use(session({
   resave: true,
   saveUninitialized: true,
-  secret: 'JobMon',
+  secret: 'JobMon'
   // : {secure: true},
-  store: new mongoStore({
-    url: db.url
-  })
+  // store: new mongoStore({
+  //   url: db.url
+  // })
 }));
 // Use the passport package in our application
 app.use(passport.initialize());
