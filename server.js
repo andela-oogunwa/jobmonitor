@@ -16,8 +16,14 @@ var app = express();
 // config files
 var db = require('./config/db');
 
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'url';
 
-
+if(env === 'url') {
+  mongoose.connect(db.url);
+}
+else{
+  mongoose.connect(db.productionUrl);
+}
 // set our port
 // var port = process.env.PORT || 8080;
 // app.set('port', (process.env.PORT || 8080));
@@ -26,7 +32,7 @@ var port = process.env.PORT || 8080;
 // connect to our database
 //do not need to save to a variable
 // var testCon = mongoose.connect(db.url);
-mongoose.connect(db.productionUrl);
+// mongoose.connect(db.productionUrl);
 
 // get all data/stuff of the body (POST) parameters
 // parse application/json 
